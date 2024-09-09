@@ -5,9 +5,9 @@ from tqdm import tqdm
 
 def test_region_speed(regions, text, voice_id="Nicole", num_runs=5):
     results = []
-    for region in tqdm(regions, desc="Testing regions"):
+    for region in tqdm(regions, desc="Regions", position=0):
         region_times = []
-        for _ in range(num_runs):
+        for _ in tqdm(range(num_runs), desc=f"Runs ({region})", position=1, leave=False):
             start_time = time.time()
             audio_file = text_to_speech(text, voice_id=voice_id, region_name=region)
             end_time = time.time()
