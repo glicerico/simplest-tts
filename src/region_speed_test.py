@@ -27,7 +27,6 @@ def test_region_speed(regions, text, voice_id="Nicole", num_runs=5):
 def main():
     regions = ["us-east-1", "eu-west-1", "ap-southeast-2", "ap-southeast-1", "ap-east-1"]
     test_text = "This is a test of the AWS Polly text-to-speech service in different regions."
-
     num_runs = 5
     
     print(f"Testing AWS Polly speed in different regions ({num_runs} runs per region)...")
