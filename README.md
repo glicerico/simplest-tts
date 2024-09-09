@@ -38,5 +38,12 @@ If you don't provide these options, the service will use the default values.
 
 The service will be expecting text as input, until you press `Ctrl+C` to terminate the service.
 
+## Region Speed Test
+To test the speed of AWS Polly in different regions, you can use the region_speed_test.py script:
+```
+python3 region_speed_test.py
+```
+This script will test the speed of AWS Polly in different regions and print the results, including the fastest region. You can modify the regions to test in the script as needed.
+
 ## License
 This project is licensed under the GNU General Public License v3.0. See the LICENSE file for details.
