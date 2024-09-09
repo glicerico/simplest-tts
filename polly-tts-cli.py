@@ -1,10 +1,11 @@
 import boto3
 import pygame
 from tempfile import NamedTemporaryFile
+import argparse
 
-def text_to_speech(text, voice_id="Nicole"):
+def text_to_speech(text, voice_id="Nicole", region_name="us-west-2"):
     # Initialize the Polly client
-    polly_client = boto3.client('polly', region_name='us-west-2')
+    polly_client = boto3.client('polly', region_name=region_name)
     
     try:
         # Request speech synthesis
@@ -35,6 +36,11 @@ def play_audio(file_path):
         pygame.time.Clock().tick(10)
 
 def main():
+    parser = argparse.ArgumentParser(description="AWS Polly CLI Interface")
+    parser.add_argument("--region", default="us-west-2", help="AWS region (default: us-west-2)")
+    parser.add_argument("--voice", default="Nicole", help="Voice ID (default: Nicole)")
+    args = parser.parse_args()
+
     print("Welcome to the AWS Polly CLI Interface!")
     print("Enter your text and press Enter to hear it spoken.")
     print("Press CTRL+C to exit.")
@@ -44,7 +50,7 @@ def main():
             text = input("Enter text: ").strip()
             
             if text:
-                audio_file = text_to_speech(text)
+                audio_file = text_to_speech(text, voice_id=args.voice, region_name=args.region)
                 
                 if audio_file:
                     print(f"Playing audio for: {text}")

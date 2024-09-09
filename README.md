@@ -23,9 +23,20 @@ Once the virtual environment is activated, run the service:
 python3 polly-tts-cli.py
 ```
 
-If you want to use a different voice, you can change the `voice_id` parameter in the `polly-tts-cli.py` file.
 
-The service will be expecting text as input, until you press `Ctrl+C` to terminate the service.:w
+You can also specify the AWS region and voice ID using command-line options:
+```
+python3 polly-tts-cli.py --region us-east-1 --voice Joanna
+```
+
+
+Available options:
+- `--region`: Specify the AWS region (default: us-west-2)
+- `--voice`: Specify the Polly voice ID (default: Nicole)
+
+If you don't provide these options, the service will use the default values.
+
+The service will be expecting text as input, until you press `Ctrl+C` to terminate the service.
 
 ## License
 This project is licensed under the GNU General Public License v3.0. See the LICENSE file for details.
